@@ -8,7 +8,7 @@ The following steps should cover (almost) everything you need to get it running.
 Head over to [Whale Alert](https://whale-alert.io/about) and create a free account. The free plan is sufficient for this script. Create an API key from your account and use this as `WHALEALERT_API_KEY` in the step [Environment Variables](#environment-variables) below.
 
 ### Database
-Set up a PostgreSQL database (following [these instructions](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-18-04), for example). Use the credentials for this in the next step.
+Set up a PostgreSQL database (following [these instructions](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-18-04), for example). Use the credentials for this in the next step (`PG_WHALEALERT_*`).
 
 Create a database named `whalealert` and a user named `whalealert`.
 
@@ -23,13 +23,13 @@ export WHALEALERT_API_KEY=xxxxxxxx
 ```
 
 ### Python Environment
-Create a virtual environment for this repo. I used Anaconda.
+Create a virtual environment for this repo. If you use [Anaconda](https://www.anaconda.com/products/individual), type the following:
 
 ```
 conda create -y -n whalealert --file requirements.txt
 ```
 
-Activate the environment and start the script.
+Activate the environment and start the script:
 
 ```
 conda activate whalealert
@@ -54,3 +54,6 @@ Should you want to return to this screen, type:
 ```
 screen -r whalealert
 ```
+
+## Contribute
+Feel free to open a merge request if you have made improvements to the script. 
