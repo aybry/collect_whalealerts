@@ -5,7 +5,7 @@ This is a script that fetches transactions from the [Whale Alert](whale-alert.io
 The following steps should cover (almost) everything you need to get it running. Get in touch if you are stuck.
 
 ### Whale Alert Account
-Head over to [Whale Alert](https://whale-alert.io/about) and create a free account. The free plan is sufficient for this script. Create an API key from your account and use this as `WHALEALERT_API_KEY` in the step **Environment Variables** below.
+Head over to [Whale Alert](https://whale-alert.io/about) and create a free account. The free plan is sufficient for this script. Create an API key from your account and use this as `WHALEALERT_API_KEY` in the step [Environment Variables](https://github.com/aybry/collect_whalealerts#environment-variables) below.
 
 ### Database
 Set up a PostgreSQL database (following [these instructions](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-18-04), for example). Use the credentials for this in the next step.
