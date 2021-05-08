@@ -10,7 +10,7 @@ Head over to [Whale Alert](https://whale-alert.io/about) and create a free accou
 ### Database
 Set up a PostgreSQL database (following [these instructions](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-18-04), for example). Use the credentials for this in the next step.
 
-Create a schema named `whalealert` and a user named `whalealert`.
+Create a database named `whalealert` and a user named `whalealert`.
 
 ### Environment Variables
 Add the following lines (replace the `xxx`s) to your `~/.bashrc`:
@@ -47,4 +47,10 @@ conda activate whalealert
 python fetch_transactions.py
 ```
 
-Then pree `Ctrl+A Ctrl+D` to detach from this screen and leave it running in the background.
+Then press `Ctrl+A Ctrl+D` to detach from this screen and leave it running in the background.
+
+Should you want to return to this screen, type:
+
+```
+screen -r whalealert
+```
