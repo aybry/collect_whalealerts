@@ -2,58 +2,34 @@
 This is a script that fetches transactions from the [Whale Alert](whale-alert.io) API on a regular basis and adds any new transactions to your own database. This could be useful if you're looking to perform data analyses on large transactions, but need to gather the data first.
 
 ## Setup
-The following steps should cover (almost) everything you need to get it running. Get in touch if you are stuck.
+You will need the following to get the script running:
 
-### Whale Alert Account
-Head over to [Whale Alert](https://whale-alert.io/about) and create a free account. The free plan is sufficient for this script. Create an API key from your account and use this as `WHALEALERT_API_KEY` in the step [Environment Variables](#environment-variables) below.
-
-### Database
-Set up a PostgreSQL database (following [these instructions](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-18-04), for example). Use the credentials for this in the next step (`PG_WHALEALERT_*`).
-
-Create a database named `whalealert` and a user named `whalealert`.
-
-### Environment Variables
-Add the following lines (replace the `xxx`s) to your `~/.bashrc`:
+- Whale Alert Account: Get a free account from [Whale Alert](https://whale-alert.io/about). Use your API key as the environment variable `WHALEALERT_API_KEY`.
+- Database: Set up a PostgreSQL database (following [these instructions](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-18-04), for example). If you don't have a DigitalOcean account, feel free to sign up via this referral link: https://m.do.co/c/23d2dec5aec6.
+- `.env` file: Create a file named `.env`, and enter your database credentials into it. The file requires the following credentials:
 
 ```
-export PG_WHALEALERT_HOST=xxxxxxxx
-export PG_WHALEALERT_PORT=xxxxxxxx
-export PG_WHALEALERT_PASSWORD=xxxxxxxx
-export WHALEALERT_API_KEY=xxxxxxxx
+PG_WHALEALERT_HOST=**********
+PG_WHALEALERT_PORT=**********
+PG_WHALEALERT_DBNAME=**********
+PG_WHALEALERT_USER=**********
+PG_WHALEALERT_PASSWORD=**********
+WHALEALERT_API_KEY=**********
 ```
 
-### Python Environment
-Create a virtual environment for this repo. If you use [Anaconda](https://www.anaconda.com/products/individual), type the following:
+### Virtual Environment
+This project uses Poetry as the dependency/package manager for Python.
+
+To start the script without Docker, run the following shell commands:
 
 ```
-conda create -y -n whalealert --file requirements.txt
+# Use .env file to access environment variables
+set -o allexport
+source .env
+
+# Set up poetry
+pip install poetry
+poetry install
+
+poetry run python fetch_transactions.py
 ```
-
-Activate the environment and start the script:
-
-```
-conda activate whalealert
-python fetch_transactions.py
-```
-
-## Recommendations
-If you are running this on a server, use [Screen](https://linuxize.com/post/how-to-use-linux-screen/). This allows you to leave terminal screens running in the background, and return to them when necessary (e.g. if you want to kill the process with `Ctrl+C`).
-
-Create a Screen for this process before starting the script:
-
-```
-screen -S whalealert
-conda activate whalealert
-python fetch_transactions.py
-```
-
-Then press `Ctrl+A Ctrl+D` to detach from this screen and leave it running in the background.
-
-Should you want to return to this screen, type:
-
-```
-screen -r whalealert
-```
-
-## Contribute
-Feel free to open a merge request if you have made improvements to the script. 
