@@ -1,0 +1,13 @@
+version: "3.9"
+
+services:
+  collect_whalealerts:
+    build:
+      context: .
+    environment:
+      - PG_WHALEALERT_HOST=${PG_WHALEALERT_HOST}
+      - PG_WHALEALERT_PORT=${PG_WHALEALERT_PORT}
+      - PG_WHALEALERT_DBNAME=${PG_WHALEALERT_DBNAME}
+      - PG_WHALEALERT_USER=${PG_WHALEALERT_USER}
+      - PG_WHALEALERT_PASSWORD=${PG_WHALEALERT_PASSWORD}
+      - WHALEALERT_API_KEY=${WHALEALERT_API_KEY}
