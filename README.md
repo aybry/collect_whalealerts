@@ -1,3 +1,6 @@
+# Repository Migrated to GitLab
+See https://gitlab.com/aybry/collect_whalealerts for the latest (containerised) version of this project.
+
 # Whalealert Transaction Collector
 This is a script that fetches transactions from the [Whale Alert](whale-alert.io) API on a regular basis and adds any new transactions to your own database. This could be useful if you're looking to perform data analyses on large transactions, but need to gather the data first.
 
